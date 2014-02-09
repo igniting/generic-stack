@@ -42,3 +42,20 @@ This directory contains following files:
 * stacktest.c: Checks all the methods defined using a stack of integers and a stack of doubles.
 
 * Makefile: `make` compiles everything. Other options: `make run` and `make compile`.
+
+## Merits and Demerits
+
+Merits:
+  * A stack for any data type can be created by just passing the size of the data type as a parameter.
+  * All the functions are generic. They can work with any data type.
+
+Demerits:
+  * There is no type checking. There is no way to check if the element given to push is of same type as of stack. However this can not be avoided without losing genericity.
+
+## Reasons for using this approach
+This approach is inspired from stack based memory allocation used in almost all processors. This approach at one side is as low-level as it can get (using bytes) and on another side is generic enough to work for any data type.
+
+## References
+* Introduction to Algorithms, Cormen
+* The C Programming Language, Kernighan and Ritchie
+* Stack Based Memory Allocation
