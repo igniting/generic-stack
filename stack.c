@@ -32,12 +32,12 @@ void push(Stack *s, void *elem) {
   if(s->top == s->maxElements) {
     fprintf(stderr, "Element can not be pushed: Stack is full.\n");
     exit(1);
-  }  
-  s->top = s->top + 1;
+  }
   int start = s->top * s->elemSize, i;
   for(i = 0; i < s->elemSize; i++) {
     *(s->storage + start + i) = *((byte *)(elem + i));
   }
+  s->top = s->top + 1;
 }
 
 void* pop(Stack *s) {
@@ -45,8 +45,9 @@ void* pop(Stack *s) {
     fprintf(stderr, "Can not pop from an empty stack.\n");
     exit(1);
   }
+  void *elem = top(s);
   s->top = s->top - 1;
-  return top(s);
+  return elem;
 }
 
 void* top(Stack *s) {
@@ -54,7 +55,7 @@ void* top(Stack *s) {
     fprintf(stderr, "Can not pop from an empty stack.\n");
     exit(1);
   }
-  int start = (s->top - 1) * s->elemSize + 1, i;
+  int start = (s->top - 1) * s->elemSize, i;
   byte *elem;
   elem = (byte *)malloc(s->elemSize);
   for(i = 0; i < s->elemSize; i++) {

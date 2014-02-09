@@ -36,20 +36,20 @@ int main() {
   int t;
   t = *((int *)top(&s));
   if(t == n) {
-    fprintf(stdout, "Top element is %d .\n", t);
+    fprintf(stdout, "Top element is %d.\n", t);
   }
   else {
     fprintf(stderr, "Error: Top element is not equal to last pushed element.\n");
-    fprintf(stderr, "Expected %d, got %d .\n", n, t);
+    fprintf(stderr, "Expected %d, got %d.\n", n, t);
     exit(1);
   }
 
   /* pop all elements */
-  for(i = n; i >= 0; i++) {
+  for(i = n; i >= 1; i--) {
     int t = *((int *)pop(&s));
     if(i != t) {
       fprintf(stderr, "Error: Elements not being popped in LIFO manner.\n");
-      fprintf(stderr, "Expected %d but got %d .\n", i , t);
+      fprintf(stderr, "Expected %d but got %d.\n", i , t);
       exit(1);
     }
   }
