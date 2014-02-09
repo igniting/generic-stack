@@ -9,3 +9,9 @@ stacktest.o: stacktest.c stack.h
 
 stack.o: stack.c stack.h
 	$(CC) $(CFLAGS) -c stack.c
+
+run: stacktest
+	./stacktest
+
+clean:
+	rm -f *.o *.gch stacktest
